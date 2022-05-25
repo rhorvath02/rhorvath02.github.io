@@ -359,7 +359,7 @@ nav .fa {
 }
 
 .gallery img {
-    width:200px;
+    width:400px;
     border-radius:20px;
 }
 
@@ -653,6 +653,11 @@ nav .fa {
     .profile img {
         width:275px;
         border-radius:15%;
+    }
+
+    .gallery img {
+        width:200px;
+        border-radius:20px;
     }
 
     .array {
