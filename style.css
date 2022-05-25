@@ -360,6 +360,7 @@ nav .fa {
 
 .gallery img {
     width:200px;
+    border-radius:20px;
 }
 
 .gallery p {
