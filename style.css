@@ -361,7 +361,7 @@ nav .fa {
 }
 
 .gallery img {
-    width:400px;
+    width:200px;
 }
 
 .gallery p {
@@ -534,7 +534,7 @@ nav .fa {
     }
 
     .links {
-        position:absolute;
+        position:fixed;
         background:#000;
         height:100vh;
         width:200px;
@@ -606,7 +606,7 @@ nav .fa {
     }
 
     .links {
-        position:absolute;
+        position:fixed;
         background:#000;
         height:100vh;
         width:200px;
@@ -677,7 +677,7 @@ nav .fa {
     }
 
     .links {
-        position:absolute;
+        position:fixed;
         background:#000;
         height:100vh;
         width:200px;
