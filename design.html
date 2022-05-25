@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Robert Horvath Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Intro-->
+    <section class="greeting">
+        <nav>
+            <a href="index.html"><img src="media/logo.jpg"></a>
+
+            <div class="links" id="links">
+                <i class="fa fa-arrow-right" onclick="hide_menu()"></i>
+
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <!--<li><a href="">PROJECTS</a></li>-->
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <i class="fa fa-bars" onclick="show_menu()"></i>
+
+        </nav>
+
+        <hr>
+
+    <!--Design-->
+    <section class="design">
+        <h1>Design</h1>
+        <p>Interactice model of the suspension system I worked on:</p>
+        <iframe width="80%" height="480" frameborder="0" allowFullScreen webkitallowfullscreen mozallowfullscreen 
+        src="https://gallery.autodesk.com/projects/168459/assets/644523/embed"></iframe>
+        <hr>
+        <h1>Project Overview</h1>
+        <h3>Before working directly on the suspension of our vehicle, I spent time learning about vehicle dynamics and engineering 
+            mechanics. This educational period allowed me to learn about the system as a whole and learn about the specific 
+            applications of coursework to vehicle systems.
+            <br>
+            <br>
+            <br>
+            After this, I designed a continuously-adjustable (bladed) anti-roll bar, shown to the right. I also set hardpoints 
+            based on target parameters and worked to reach desired dynamic properties.
+            <br>
+            <br>
+            <br>
+            On top of these areas, I designed control arms, pullrods, toe/tie rods, and bellcrank geometry (These can be seen 
+            on the manufacuring page).
+            <img src="media/ARB Assembly.jpg">
+        </h3>
+
+    </section>
+
+    <!--Footer-->
+    <section class="footer">    
+        <div class="icons">
+            <a href="https://github.com/rhorvath02" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rhorvath2002/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+<!--Javascript-->
+<script>
+
+    var links = document.getElementById("links")
+
+    function show_menu() {
+        links.style.right = "0"
+    }
+
+    function hide_menu() {
+        links.style.right = "-200px"
+    }
+            
+</script>
+
+</body>
+</html>

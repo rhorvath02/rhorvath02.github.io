@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Robert Horvath Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Intro-->
+    <section class="greeting">
+        <nav>
+            <a href="index.html"><img src="media/logo.jpg"></a>
+
+            <div class="links" id="links">
+                <i class="fa fa-arrow-right" onclick="hide_menu()"></i>
+
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <!--<li><a href="">PROJECTS</a></li>-->
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <i class="fa fa-bars" onclick="show_menu()"></i>
+
+        </nav>
+
+        <hr>
+
+    <!--Manufacturing-->
+    <section class="manufacturing">
+        <h1>Manufacturing</h1>
+
+        <h2>
+            Throughout my time on UT Austin's FSAE Electric team, I've learned about the manufacturing process. 
+            I have machined several components on the car, many of which are shown below.
+        </h2>
+
+        <!--Add new images here-->
+        <div class="gallery">
+            <img src="media/Treated ARB Blade.jpg">
+            <p>ARB Blade</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/Front Bellcrank.jpg">
+            <p>Front Bellcrank</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/Rear Bellcrank.jpg">
+            <p>Rear Bellcrank</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/ARB Assembly Full.jpg">
+            <p>ARB & Front Bellcrank Assembly</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/Staked Control Arms.jpg">
+            <p>Staked Control Arms</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/rear full.jpg">
+            <p>Rear Suspension & Unsprung Assembly</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/ARB Connector.jpg">
+            <p>ARB Connector</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/Plugs.jpg">
+            <p>Tapped Plug</p>
+        </div>
+
+        <div class="gallery">
+            <img src="media/cone spacer.jpg">
+            <p>Cone Spacer</p>
+        </div>
+
+        <h2>
+            I machined the parts above primarily on manual machines (lathe and mill). The cone spacers, tapped plugs, 
+            ARB connectors, and ARB blades were done entirely on manual machines (I also heat treated the ARB blade). 
+            The front and rear bellcranks were made on a CNC mill (I assisted in running the machine for these parts). 
+            The assemblies include all of the individual components machined above.
+        </h2>
+
+    </section>
+
+    <!--Footer-->
+    <section class="footer">    
+        <div class="icons">
+            <a href="https://github.com/rhorvath02" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rhorvath2002/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+<!--Javascript-->
+<script>
+
+    var links = document.getElementById("links")
+
+    function show_menu() {
+        links.style.right = "0"
+    }
+
+    function hide_menu() {
+        links.style.right = "-200px"
+    }
+            
+</script>
+
+</body>
+</html>

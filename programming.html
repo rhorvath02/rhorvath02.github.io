@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Robert Horvath Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Intro-->
+    <section class="greeting">
+        <nav>
+            <a href="index.html"><img src="media/logo.jpg"></a>
+
+            <div class="links" id="links">
+                <i class="fa fa-arrow-right" onclick="hide_menu()"></i>
+
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <!--<li><a href="">PROJECTS</a></li>-->
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <i class="fa fa-bars" onclick="show_menu()"></i>
+
+        </nav>
+
+        <hr>
+
+    <!--Programming-->
+    <section class="programming">
+        <h1>Programming</h1>
+        <h2><p1 style="color:#32a871">Overview:</p1></h2>
+        <h3>
+            I currently have two projects on my GitHub. One is this website, and the other is a script I wrote to 
+            automate anti-roll bar design.
+            <br>
+            <br>
+            <br>
+            <p1 style="color:#32a871">Website:</p1>
+            <br>
+            <br>
+            The purpose of this website is to both showcase what I've done and get some practice with front-end web development.
+            This is a learning tool that allows me to work on my web development skills and see progress over time.
+            <br>
+            <br>
+            <br>
+            <p1 style="color:#32a871">Anti-roll bar design:</p1>
+            <br>
+            <br>
+            I initially derived stiffness equations for the ARB geometry I planned to implement. However, I realized I could write an automated calculation system, 
+            allowing me to test various designs without having to perform manual design modifications.
+            <br>
+            <br>
+            I wrote a separate script to filter through acceptable geometry values that would package with the car. I then used this filtration process to find 
+            dimensions that maximized stiffness range while preventing yield of components. The code linked is my automated calculation system and a visualization program I wrote to go with it.
+        </h3>
+
+        <h4>
+            <a href="https://github.com/rhorvath02/" target="_blank">Click here to visit my GitHub</a>
+        </h4>
+
+    </section>
+
+    <!--Footer-->
+    <section class="footer">    
+        <div class="icons">
+            <a href="https://github.com/rhorvath02" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rhorvath2002/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+<!--Javascript-->
+<script>
+
+    var links = document.getElementById("links")
+
+    function show_menu() {
+        links.style.right = "0"
+    }
+
+    function hide_menu() {
+        links.style.right = "-200px"
+    }
+            
+</script>
+
+</body>
+</html>
