@@ -656,7 +656,7 @@ nav .fa {
     }
 
     .gallery img {
-        width:200px;
+        width:300px;
         border-radius:20px;
     }
 
@@ -733,5 +733,10 @@ nav .fa {
 
     .array {
         flex-direction:column;
+    }
+
+    .gallery img {
+        width:250px;
+        border-radius:20px;
     }
 }
