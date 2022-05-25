@@ -80,7 +80,6 @@ nav img {
     position:absolute;
     top:300px;
     left:15%;
-    text-align:left;
 }
 
 .welcome h1 {
@@ -561,8 +560,8 @@ nav .fa {
         width:60%;
         color:#fff;
         position:absolute;
+        left:17.5%;
         top:130px;
-        left:22.5%;
         text-align:left;
     }
     
@@ -580,7 +579,7 @@ nav .fa {
     
     .profile {
         position:absolute;
-        left:22.5%;
+        left:17.5%;
         top:307.5px;
     }
     
@@ -635,7 +634,8 @@ nav .fa {
         position:absolute;
         top:130px;
         margin:auto;
-        text-align:left;
+        text-align:center;
+        justify-content:center;
     }
     
     .welcome h1 {
@@ -649,12 +649,7 @@ nav .fa {
         font-size:14px;
         color:#ffffff;
     }
-    
-    .profile {
-        position:absolute;
-        left:20%;
-        top:307.5px;
-    }
+
     
     .profile img {
         width:275px;
