@@ -243,10 +243,9 @@ nav .fa {
     background-color:#232323;
     font-size:21px;
     font-weight:300;
-    margin-left:100px;
-    margin-right:50px;
-    text-align:left;
     color:white;
+    margin:auto;
+    text-align:left;
 }
 
 .design p {
@@ -269,18 +268,17 @@ nav .fa {
     background-color:#232323;
     font-size:18px;
     font-weight:300;
-    margin-left:100px;
-    margin-right:50px;
-    text-align:left;
+    margin:auto;
     color:white;
     line-height:30px;
+    text-align:left;
 }
 
 .design img {
     display:flex;
     width:50%;
     height:50%;
-    margin-left:50px;
+    margin-left:100px;
     border-radius:20px;
 }
 
