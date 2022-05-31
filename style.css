@@ -237,6 +237,18 @@ nav .fa {
     background-color:#232323;
 }
 
+.design h2 {
+    width:80%;
+    display:flex;
+    background-color:#232323;
+    font-size:21px;
+    font-weight:300;
+    margin-left:100px;
+    margin-right:50px;
+    text-align:left;
+    color:white;
+}
+
 .design p {
     color:#fff;
     font-weight:300;
@@ -261,6 +273,7 @@ nav .fa {
     margin-right:50px;
     text-align:left;
     color:white;
+    line-height:30px;
 }
 
 .design img {
