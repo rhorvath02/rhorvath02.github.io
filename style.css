@@ -75,38 +75,39 @@ nav img {
 /*---Welcome---*/
 
 .welcome {
-    width:27.5%;
     color:#fff;
     position:absolute;
-    top:300px;
-    left:15%;
+    top:175px;
+    margin:auto;
+    text-align:center;
+    display:flex;
+    flex-direction:row;
+    margin-left:15%;
+    margin-right:15%;
 }
 
 .welcome h1 {
     font-size:40px;
-    top:0;
     color:#32a871;
+    text-align:left;
 }
 
 .welcome p {
-    margin:10px 0 40px;
     font-size:18px;
     color:#ffffff;
-}
-
-.profile {
-    position:absolute;
-    left:50%;
-    top:200px;
-}
-
-.profile img {
-    width:400px;
-    border-radius:15%;
+    font-weight:300;
+    text-align:left;
+    margin-right:20px;
 }
 
 nav .fa {
     display:none;
+}
+
+.welcome img {
+    width:400px;
+    border-radius:20px;
+    margin-left:20px;
 }
 
 /*---Projects---*/
@@ -347,7 +348,6 @@ nav .fa {
     padding-top:25px;
     padding-bottom:25px;
     color:#32a871;
-    text-align:center;
 }
 
 .manufacturing h2 {
@@ -356,7 +356,7 @@ nav .fa {
     width:60%;
     color:#fff;
     margin:auto;
-    text-align:center;
+    text-align:left;
     padding-bottom:50px; 
     padding-top:50px;
 }
@@ -385,10 +385,10 @@ nav .fa {
 .contact {
     width:80%;
     margin:auto;
+    text-align:center;
 }
 
 .contact-col {
-    flex-basis:48%;
     margin-bottom:30px;
 }
 
@@ -429,7 +429,7 @@ nav .fa {
 
 .contact-col input, .contact-col textarea {
     width:100%;
-    padding:15px;
+    padding:0px;
     margin-bottom:17px;
     outline:none;
     border:1px solid #fff;
@@ -440,21 +440,6 @@ nav .fa {
 /*---Device Formatting---*/
 
 @media(max-width:1100px) {
-    .welcome {
-        width:27.5%;
-        color:#fff;
-        position:absolute;
-        top:300px;
-        left:10%;
-        text-align:left;
-    }
-
-    .welcome p {
-        margin:10px 0 40px;
-        font-size:17px;
-        color:#ffffff;
-    }
-
     .design h3 {
         margin:auto;
         display:block;
@@ -470,67 +455,12 @@ nav .fa {
 
 }
 
-@media(max-width:950px) {
-    .welcome {
-        width:27.5%;
-        color:#fff;
-        position:absolute;
-        top:265px;
-        left:6%;
-        text-align:left;
-    }
-
-    .welcome p {
-        margin:10px 0 40px;
-        font-size:16px;
-        color:#ffffff;
-    }
-
-    .profile {
-        position:absolute;
-        left:55%;
-        top:265px;
-    }
-
-    .profile img {
-        width:275px;
-        border-radius:15%;
-    
-    }
-}
-
-@media(max-width:700px) {
-    .welcome {
-        width:37.5%;
-        color:#fff;
-        position:absolute;
-        top:300px;
-        left:10%;
-        text-align:left;
-    }
-
-    .welcome h1 {
-        font-size:35px;
-        top:0;
-        color:#32a871;
-    }
-
-    .welcome p {
-        margin:10px 0 40px;
-        font-size:12px;
-        color:#ffffff;
-    }
-
-    .profile {
-        position:absolute;
-        left:60%;
-        top:270px;
-    }
-
-    .profile img {
-        width:200px;
-        border-radius:15%;
-    
+@media(max-width:840px) {
+    .welcome img {
+        width:300px;
+        height:300px;
+        border-radius:20px;
+        margin-left:20px;
     }
 }
 
@@ -569,35 +499,31 @@ nav .fa {
     }
 
     .welcome {
-        width:60%;
-        color:#fff;
-        position:absolute;
-        left:17.5%;
-        top:130px;
-        text-align:left;
+        display:inline-block;
+        margin:auto;
+        text-align:center;
     }
-    
+
     .welcome h1 {
-        font-size:30px;
-        top:0;
-        color:#32a871;
+        width:50%;
+        margin:auto;
+        margin-top:-40px;
     }
     
     .welcome p {
-        margin:10px 0 40px;
-        font-size:14px;
-        color:#ffffff;
+        margin:auto;
     }
     
-    .profile {
-        position:absolute;
-        left:17.5%;
-        top:307.5px;
+    .welcome img {
+        width:300px;
+        height:300px;
+        border-radius:20px;
+        margin:auto;
+        margin-top:20px;
     }
-    
-    .profile img {
-        width:275px;
-        border-radius:15%;
+
+    .manufacuring {
+        flex-direction:column;
     }
 
     .array {
@@ -606,148 +532,55 @@ nav .fa {
 
 }
 
-@media(max-width:480px) {
-    body {
-        overflow-x: hidden;
+@media(max-width:600px) {
+    .welcome img {
+        width:250px;
+        height:250px;
     }
+}
 
-    .links ul li {
-        display:block;
-    }
-
-    .links {
-        position:fixed;
-        background:#000;
-        height:100vh;
-        width:200px;
-        top:0;
-        right:-200px;
-        text-align:center;
-        z-index:5;
-        transition:0.5s;
-    }
-
-    nav .fa {
-        display:block;
-        color:#fff;
-        margin:10px;
-        font-size:22px;
-        cursor:pointer;
-        text-align:left;
-    }
-
-    .links ul {
-        padding:30px;
-    }
-
-    .welcome {
-        width:60%;
-        color:#fff;
-        position:absolute;
-        left:17.5%;
-        top:130px;
-    }
-    
-    .welcome h1 {
-        font-size:30px;
-        top:0;
-        color:#32a871;
-    }
-    
-    .welcome p {
-        margin:10px 0 40px;
-        font-size:14px;
-        color:#ffffff;
-    }
-
-    
-    .profile img {
-        width:275px;
-        border-radius:15%;
-    }
-
+@media(max-width:500px) {
     .gallery img {
         width:300px;
         border-radius:20px;
     }
 
-    .array {
-        flex-direction:column;
+    .welcome h1 {
+        width:50%;
+        margin:auto;
+        font-size:30px;
+        margin-top:-50px;
+    }
+
+    .welcome p {
+        font-size:18px;
+    }
+
+    .welcome img {
+        width:250px;
+        height:250px;
     }
 }
 
 @media(max-width:380px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    .links ul li {
-        display:block;
-    }
-
-    .links {
-        position:fixed;
-        background:#000;
-        height:100vh;
-        width:200px;
-        top:0;
-        right:-200px;
-        text-align:center;
-        z-index:5;
-        transition:0.5s;
-    }
-
-    nav .fa {
-        display:block;
-        color:#fff;
-        margin:10px;
-        font-size:22px;
-        cursor:pointer;
-        text-align:left;
-    }
-
-    .links ul {
-        padding:30px;
-    }
-
-    .welcome {
-        width:60%;
-        color:#fff;
-        position:absolute;
-        top:130px;
-        left:7.5%;
-        text-align:left;
-    }
-    
-    .welcome h1 {
-        font-size:30px;
-        top:0;
-        color:#32a871;
-    }
-    
-    .welcome p {
-        margin:10px 0 40px;
-        font-size:14px;
-        color:#ffffff;
-    }
-    
-    .profile {
-        position:absolute;
-        left:7.5%;
-        top:307.5px;
-    }
-    
-    .profile img {
-        width:275px;
-        border-radius:15%;
-    }
-
-    .array {
-        flex-direction:column;
-    }
-
     .gallery img {
         width:250px;
         border-radius:20px;
+    }
+
+    .welcome h1 {
+        width:50%;
+        margin:auto;
+        font-size:30px;
+        margin-top:-50px;
+    }
+
+    .welcome p {
+        font-size:16px;
+    }
+
+    .welcome img {
+        width:200px;
+        height:200px;
     }
 }
