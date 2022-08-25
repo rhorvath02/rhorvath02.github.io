@@ -144,7 +144,7 @@ nav .fa {
 }
 
 .project_array {
-    flex-basis: 31%;
+    flex-basis: 20%;
     background:#383838;
     border-radius:30px;
     margin-bottom:10%;
@@ -351,6 +351,50 @@ nav .fa {
 }
 
 .manufacturing h2 {
+    font-size:18px;
+    font-weight:300;
+    width:60%;
+    color:#fff;
+    margin:auto;
+    text-align:left;
+    padding-bottom:50px; 
+    padding-top:50px;
+}
+
+.gallery {
+    margin-right:50px;
+    padding-top:50px;
+    margin:20px;
+    display:inline-block;
+    background-color:#232323;
+}
+
+.gallery img {
+    width:400px;
+    border-radius:20px;
+}
+
+.gallery p {
+    color:#fff;
+    font-size:20px;
+    margin-top:10px;
+}
+
+/*---Work---*/
+
+.work {
+    background-color:#232323;
+    text-align:center;
+}
+
+.work h1 {
+    font-size:36px;
+    padding-top:25px;
+    padding-bottom:25px;
+    color:#32a871;
+}
+
+.work h2 {
     font-size:18px;
     font-weight:300;
     width:60%;
