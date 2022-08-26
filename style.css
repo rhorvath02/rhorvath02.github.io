@@ -397,7 +397,7 @@ nav .fa {
 .work h2 {
     font-size:18px;
     font-weight:300;
-    width:60%;
+    width:80%;
     color:#fff;
     margin:auto;
     text-align:left;
@@ -406,7 +406,6 @@ nav .fa {
 }
 
 .gallery {
-    margin-right:50px;
     padding-top:50px;
     margin:20px;
     display:inline-block;
@@ -422,6 +421,7 @@ nav .fa {
     color:#fff;
     font-size:20px;
     margin-top:10px;
+    text-align:center;
 }
 
 /*---Contact---*/

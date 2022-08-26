@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Robert Horvath Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Intro-->
+    <section class="greeting">
+        <nav>
+            <a href="index.html"><img src="media/Logo.jpg"></a>
+
+            <div class="links" id="links">
+                <i class="fa fa-arrow-right" onclick="hide_menu()"></i>
+
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <!--<li><a href="">PROJECTS</a></li>-->
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <i class="fa fa-bars" onclick="show_menu()"></i>
+
+        </nav>
+
+        <hr>
+
+    <!--Manufacturing-->
+    <section class="work">
+        <h1>Work Experience at Harmonic Bionics, Inc</h1>
+
+        <h2>
+            While at Harmonic Bionics, I designed a series of calibration fixtures and life cycle tests for our robotic exoskeleton. My calibration fixtures allowed us to 
+            validate and tune our linear/rotary load cells while my life cycle tests ensured functionality between routine maintenance periods.
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            Calibration Fixture Specifics:
+            <br>
+            <br>
+            When designing calibration fixtures, I needed our test process to mimic behavior in the robot. For this reason, I incorporated existing components in addition to
+            load cells, meaning that any nuances introduced by this setup would influence the calibration and ultimately produce an accurate calibration process.
+        </h2>
+        <div class="images">
+            <div class="gallery">
+                <img src="media/Load Cell Calibration.jpg">
+                <p>Load Cell Calibration</p>
+            </div>
+            <div class="gallery">
+                <img src="media/Torque Load Cell.jpg">
+                <p>Torque Load Cell Calibration</p>
+            </div>
+            <div class="gallery">
+                <img src="media/Spring Calibration.jpg">
+                <p>Spring Calibration (K and Free Length)</p>
+            </div>
+        </div>
+        <h2>
+            <br>
+            <br>
+            <br>
+            Life Cycle Test Specifics:
+            <br>
+            <br>
+            As mentioned above, I designed life cycle tests to ensure that actuators would last between maintenance periods. In order to find the torques required for this
+            test, I collected data for a 95th percentile male (the largest patient we accomodate for), and I calculated CG position/weights. I then strapped weights to the
+            robot and collected torque outputs (I then used the maximum values as an upper bound on loading cases). I then designed a spreadsheet that calculated moments 
+            of inertia, torques due to gravity, and torques due to inertial mass. I then used this spreadsheet to sweep through values that fell within motor RPM and torque 
+            constraints, allowing me to speed up the testing process on an external fixture.
+            
+        </h2>
+
+        <!--Add new images here-->
+        <div class="images">
+            <div class="gallery">
+                <img src="media/SE Test.jpg">
+                <p>Shoulder Module</p>
+            </div>
+
+            <div class="gallery">
+                <img src="media/WP Test.jpg">
+                <p>Wrist Module</p>
+            </div>
+
+            <div class="gallery">
+                <img src="media/EF Test.jpg">
+                <p>Elbow Module</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Footer-->
+    <section class="footer">    
+        <div class="icons">
+            <a href="https://github.com/rhorvath02" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rhorvath2002/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+<!--Javascript-->
+<script>
+
+    var links = document.getElementById("links")
+
+    function show_menu() {
+        links.style.right = "0"
+    }
+
+    function hide_menu() {
+        links.style.right = "-200px"
+    }
+            
+</script>
+
+</body>
+</html>
