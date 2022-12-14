@@ -51,7 +51,6 @@ to { width: 100% }
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
-    animation-delay: 3s;
     animation: 
         typing 2.5s steps(50, end);
     /* white-space: normal; */

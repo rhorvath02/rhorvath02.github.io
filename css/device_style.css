@@ -1,20 +1,15 @@
-/* @media(max-width: 900px) {
+@media(max-width: 900px) {
     .introduction img {
         width: 300px;
         border-radius:20px;
     }
-} */
+}
 
-@media(max-width: 900px) {
+@media(max-width: 765px) {
     .introduction {
         display: grid;
         grid-template-columns: 1fr;
-        height: 700px;
         gap: 0px;
-    }
-
-    .introduction img {
-        width: 400px;
     }
 
     .introduction .introduction_text {
@@ -27,22 +22,9 @@
         margin: auto;
     }
 
-    .project_element {
-        width: 350px;
-    }
-
-    .project_element img {
-        width: 300px;
-    }
-
     .resume img {
         width: 90vw;
         height: auto;
-    }
-
-    .gallery_element img {
-        width: 500px;
-        border-radius: 20px;
     }
 
 }
