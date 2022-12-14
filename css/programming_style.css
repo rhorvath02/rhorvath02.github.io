@@ -64,6 +64,14 @@
     color: #3cc882;
 }
 
+.programming a:visited {
+    color: #32a871;
+}
+
+.programming a:visited:hover {
+    color: #3cc882;
+}
+
 .programming .item {
     color: #fff;
     font-size: 20px;
