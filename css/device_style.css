@@ -1,15 +1,19 @@
-@media(max-width: 900px) {
+/* @media(max-width: 900px) {
     .introduction img {
         width: 300px;
         border-radius:20px;
     }
-}
+} */
 
-@media(max-width: 765px) {
+@media(max-width: 900px) {
     .introduction {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0px;
+    }
+
+    .introduction img {
+        width: 300px;
     }
 
     .introduction .introduction_text {
