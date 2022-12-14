@@ -1,0 +1,30 @@
+@media(max-width: 900px) {
+    .introduction img {
+        width: 300px;
+        border-radius:20px;
+    }
+}
+
+@media(max-width: 765px) {
+    .introduction {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .introduction .introduction_text {
+        margin-top: 30px;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+    .introduction .introduction_image {
+        margin: auto;
+    }
+
+    .resume img {
+        width: 90vw;
+        height: auto;
+    }
+
+}

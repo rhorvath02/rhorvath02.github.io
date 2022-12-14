@@ -1,0 +1,50 @@
+/*---Manufacturing---*/
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.manufacturing {
+    animation: fadeIn 1s;
+    background-color: #232323;
+    text-align: center;
+}
+
+.manufacturing h1 {
+    font-size: 36px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #32a871;
+}
+
+.manufacturing h2 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    width: 85%;
+    color: #fff;
+    margin: auto;
+    text-align: left;
+    padding-bottom: 50px; 
+    padding-top: 50px;
+}
+
+.gallery_element {
+    margin-right: 50px;
+    padding-top: 50px;
+    margin: 20px;
+    display: inline-block;
+    background-color: #232323;
+}
+
+.gallery_element img {
+    width: 400px;
+    border-radius: 20px;
+}
+
+.gallery_element p {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
+}

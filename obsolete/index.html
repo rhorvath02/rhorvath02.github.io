@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Robert Horvath Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Intro-->
+    <section class="greeting">
+        <nav>
+            <a href="index.html"><img src="media/Logo.jpg"></a>
+
+            <div class="links" id="links">
+                <i class="fa fa-arrow-right" onclick="hide_menu()"></i>
+
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <!--<li><a href="">PROJECTS</a></li>-->
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <i class="fa fa-bars" onclick="show_menu()"></i>
+
+        </nav>
+
+        <hr>
+        <div class="welcome">
+            <h1>Hi, I'm Robert.
+            <p>
+                <br>
+                <br>
+                I'm a Mechanical Engineering Student at the
+                <p1 style="color:#ff9214">University of Texas at Austin</p1>, specializing in
+                computer science and automotive engineering.
+            </p>
+            </h1>
+            <img src="media/Profile.jpg">
+        </div>
+
+    <!--Projects-->
+    <section class="projects">
+        <hr>
+        <h1>Projects</h1>
+        <p>(Click on Images for Additional Information)</p>
+
+        <div class="array">
+            <div class="project_array">
+                <a href="work.html" style="text-decoration:none">
+                <h3>Work Experience</h3>
+                <img src="media/harmony.jpg">
+                </a>
+            </div>
+
+            <div class="project_array">
+                <a href="design.html" style="text-decoration:none">
+                <h3>Suspension Design</h3>
+                <img src="media/Suspension.jpg">
+                </a>
+            </div>
+
+            <div class="project_array">
+                <a href="programming.html" style="text-decoration:none">
+                <h3>Programming</h3>
+                <img src="media/Code Snippet.jpg">
+                </a>
+            </div>
+
+            <div class="project_array">
+                <a href="manufacturing.html" style="text-decoration:none">
+                <h3>Manufacturing</h3>
+                <img src="media/Treated ARB Blade.jpg">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <section class="footer">    
+        <div class="icons">
+            <a href="https://github.com/rhorvath02" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rhorvath2002/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+<!--Javascript-->
+<script>
+
+    var links = document.getElementById("links")
+
+    function show_menu() {
+        links.style.right = "0"
+    }
+
+    function hide_menu() {
+        links.style.right = "-200px"
+    }
+            
+</script>
+
+</body>
+</html>

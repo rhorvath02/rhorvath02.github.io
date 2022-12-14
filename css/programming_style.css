@@ -1,0 +1,61 @@
+/*---Programming---*/
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.programming {
+    animation: fadeIn 1s;
+    background-color: #232323;
+    width: 80vw;
+    margin: auto;
+}
+
+.programming h1 {
+    font-size: 36px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #32a871;
+    text-align: center;
+}
+
+.programming h2 {
+    font-size: 24px;
+    font-weight: 400;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #fff;
+    text-align: left;
+}
+
+.programming p {
+    background-color: #32a871;
+    color: black;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 25vh;
+    border-radius: 10px;
+    margin: auto;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+    transition: 0.3s;
+}
+
+.programming p:hover {
+    background-color: #3cc882;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.2);
+}
+
+.programming a {
+    text-decoration: none;
+}
+
+.programming .item {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    line-height: 30px;
+}

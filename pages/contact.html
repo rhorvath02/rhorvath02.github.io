@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Robert Horvath Portfolio </title>
+    <link rel = "icon" type = "image/x-icon" href = "../media/favicon.ico">
+    <link rel = "stylesheet" href = "../css/general_style.css">
+    <link rel = "stylesheet" href = "../css/contact_style.css">
+    <link rel = "stylesheet" href = "../css/device_style.css">
+    <script src = "../javascript/reset_scroll.js"></script>
+    <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+    <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel = "stylesheet">
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--Navigation Bar-->
+    <section class = "navigation">
+        <a href = "../index.html"><img src = "../media/Logo.jpg"></a>
+        
+        <div class = "links" id = "links">
+            <i class = "fa fa-arrow-right" onclick = "hide_menu()"></i>
+
+            <ul>
+                <li><a href = "../index.html"> HOME </a></li>
+                <li><a href = "resume.html"> RESUME </a></li>
+                <li><a href = "contact.html"> CONTACT </a></li>
+            </ul>
+
+        </div>
+
+        <i class = "fa fa-bars" onclick = "show_menu()"></i>
+
+    </section>
+
+    <hr>
+
+    <!--Contact-->
+    <section class = "contact">
+        <h1> Contact </h1>
+        <div class = "row">
+            <div class = "contact-col">
+                <div>
+                    <i class = "fa fa-phone"></i>
+                    <span>
+                        <h5> (940) 337-7440 </h5>
+                    </span>
+                </div>
+
+                <div>
+                    <i class = "fa fa-envelope-o"></i>
+                    <span>
+                        <h5> rhorvath@utexas.edu </h5>
+                    </span>
+                </div>
+            </div>
+            <div class = "contact-col">
+                <form action = "https://formspree.io/f/xwkyylkj" method = "POST">
+                    <input type = "name" name = "name" placeholder = "  Name" required>
+                    <input type = "email" name = "email" placeholder = "  Email address" required>
+                    <input type = "text" name = "subject" placeholder = "  Subject" required>
+                    <textarea rows = "8" name = "message" placeholder = "  Message" required></textarea>
+                    <button type = "submit" class = "send_button"> Send Message </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <section class = "footer">    
+        <div class = "icons">
+            <a href = "https://github.com/rhorvath02" target = "_blank"><i class = "fa fa-github"></i></a>
+            <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><i class = "fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+</body>
+</html>
