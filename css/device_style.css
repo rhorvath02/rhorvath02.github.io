@@ -12,6 +12,11 @@
         gap: 0px;
     }
 
+    .introduction img {
+        width: 250px;
+        border-radius:20px;
+    }
+
     .introduction .introduction_text {
         margin-top: 30px;
         margin-left: 10vw;
@@ -25,6 +30,18 @@
     .resume img {
         width: 90vw;
         height: auto;
+    }
+
+    .project_element {
+        width: 200px;
+    }
+
+    .project_element img {
+        width: 150px;
+    }
+
+    .gallery_element {
+        width: 200px;
     }
 
 }
