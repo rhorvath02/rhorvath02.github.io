@@ -1,0 +1,57 @@
+/*---Design---*/
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h1 {
+    animation: fadeIn 1s;
+    font-size: 36px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #32a871;
+    text-align: center;
+}
+
+.item_list {
+    animation: fadeIn 1s;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #232323;
+    gap: 100px;
+}
+
+.item_list .row {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    width: 60vw;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+
+.item_list .col {
+    justify-content: center;
+    text-align: left;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    line-height: 30px;
+}
+
+.item_list .col h2 {
+    color: #32a871;
+}
+
+.item_list .col p {
+    margin-top: 50px;
+}
+
+.item_list .col img {
+    width: 300px;
+    border-radius: 25px;
+}

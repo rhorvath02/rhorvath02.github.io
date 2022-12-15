@@ -155,8 +155,9 @@ to { width: 100% }
     border-color: #383838;
     border-style: solid;
     width: 250px;
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .project_element:hover {
-    box-shadow: 0 0 20px 20px rgba(0,0,0,0.2);
+    background-color: #4d4d4d;
 }
