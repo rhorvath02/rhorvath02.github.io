@@ -1,3 +1,10 @@
+@media(max-width: 1100px) {
+    .item_list .row {
+        width: 80vw;
+        gap: 25px;
+    }
+}
+
 @media(max-width: 900px) {
     .introduction img {
         width: 300px;
@@ -42,6 +49,10 @@
 
     .gallery_element {
         width: 200px;
+    }
+
+    .item_list .row {
+        flex-direction: column;
     }
 
 }
