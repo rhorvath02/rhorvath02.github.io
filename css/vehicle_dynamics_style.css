@@ -72,6 +72,10 @@ h3 {
     color: #3cc882;
 }
 
+.item_list a:visited {
+    color: #32a871;
+}
+
 .item_list .col p {
     margin-top: 50px;
 }
