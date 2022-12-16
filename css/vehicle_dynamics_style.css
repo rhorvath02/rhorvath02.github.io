@@ -14,6 +14,17 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    animation: fadeIn 1s;
+    color: #fff;
+    background-color: #232323;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+}
+
 .item_list {
     animation: fadeIn 1s;
     display: flex;
@@ -47,6 +58,20 @@ h1 {
     color: #32a871;
 }
 
+.item_list a {
+    text-decoration: none;
+    color: #32a871;
+    text-align: left;
+}
+
+.item_list a:hover {
+    color: #3cc882;
+}
+
+.item_list .col h2:hover {
+    color: #3cc882;
+}
+
 .item_list .col p {
     margin-top: 50px;
 }
@@ -54,4 +79,9 @@ h1 {
 .item_list .col img {
     width: 300px;
     border-radius: 25px;
+    transition: 0.5s;
+}
+
+.item_list .col img:hover {
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.5);
 }
