@@ -374,6 +374,60 @@
 
         </div>
 
+        <div class = "row">
+            <div class = "col">
+                <h2> Column Sizing: </h2>
+                <p>
+                    Now that I know torque throughout the column, I can size the column tubes appropriately. I'll use the following
+                    formula for this calculation: shear stress = Tr / Ip. I know the torque through my system from steering effort, and
+                    I'll double this torque for a factor of safety (approximate to 40 lbf-ft). I'll opt with steel 4130 for now as our 
+                    material (due to its yield strength and our team's familiarity with it). This calculation gives me the following:
+                    <br>
+                    <br>
+                    OD / (OD^4 - ID^4) &#8804; 28.634
+                    <br>
+                    <br>
+                    I also want to minimize mass, so I need to minimize &pi;/4 * (OD^2 - ID^2). I've plotted failure metric vs weight
+                    metric to the right. Point 1 corresponds to a tube of outer diameter 0.75" and inner diameter 0.694". I've repeated
+                    this process for the upper column as well.
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "../media/lower_column_sizing.png">
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <h2> Hardware Selection (U-Joint Selection): </h2>
+                <p>
+                    I now know the torque throughout the steering system, so I can select universal joints that meet my requirements.
+                    Note that I will use Misumi to source these u-joints, as they have highly adjustable components and in-depth data
+                    sheets. I've gone ahead and located a potential model (the standard model made by Misumi). I'll start at this
+                    arbitrary point and look at the selection criteria from the data sheet, listed to the right:
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "../media/u-joint_selection_criteria.png">
+            </div>
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    Using the given formula, I'll approximate an arbitrary rotational speed as 100 rpm (1.67 revolutions per second).
+                    This is technically intermittent speed rather than continuous, but it'll give us a worst case scenario.
+                    Our u-joint angle is 25 degrees, and the torque is 40 lbf-ft (55 Nm). This gives a condition variable of 137,500
+                    and a corrected rotational speed of 182 rpm. I've selected a u-joint with a condition variable of 175,000 and
+                    an allowable rotational speed of 900 (UNCA16). I've now implemented two of these into the design.
+                </p>
+            </div>
+
+        </div>
+
     </div>
 
     <!--Footer-->
