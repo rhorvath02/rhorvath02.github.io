@@ -40,7 +40,7 @@ h3 {
     flex-direction: row;
     gap: 100px;
     width: 60vw;
-    justify-content: center;
+    justify-content: left;
     margin: auto;
     align-items: center;
 }
