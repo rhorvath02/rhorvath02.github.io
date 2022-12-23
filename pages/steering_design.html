@@ -43,389 +43,42 @@
     <div class = "item_list" style = "gap: 25px">
         <div class = "row">
             <div class = "col">
-                <h2 style> Approach: </h2>
+                <h2> Overall Approach: </h2>
                 <p>
                     The steering system is the driver's interface with the tires. Therefore, we need to design a system that maintains
                     functionality through the additional DOF. I've helped maintain consistency by minimizing bump steer before
-                    doing any additional work (I'll add a 2D sketch of the kinematics at a later date). Now we need to focus on our two
-                    primary factors: maximizing driver comfort and maximizing the grip of the tires.
+                    doing any additional work (I'll add a 2D sketch of the kinematics at a later date). Now we need to focus on our
+                    primary design factors: maximizing driver comfort, maximizing the grip of the tires, and miantaining structural 
+                    integrity.
                 </p>
             </div>
         </div>
 
         <div class = "row">
             <div class = "col">
-                <h2> Ackermann Selection: </h2>
+                <a href = "steering_design_ackermann.html"><h2> Ackermann Selection: </h2></a>
                 <p>
-                    A large part of maximizing grip of the tires is Ackermann selection. Before we begin, we need to ask a few questions:
-                    <br>
-                    <br>
-                    1. What state of the car do we design for?
-                    <br>
-                    2. How do we make our design robust to changes in vehicle state?
-                    <br>
-                    <br>
-                    I've approached these questions below and detailed the entire selection/design process.
+                    This section details how I selected the Ackermann percent (click on the title name to learn more about this section)
                 </p>
             </div>
         </div>
-        
+
         <div class = "row">
             <div class = "col">
-                <h2> Tire Loading: </h2>
+                <a href = "steering_design_steering_effort.html"><h2> Steering Effort: </h2></a>
                 <p>
-                    One of the most important elements to consider here is tire loading. Fz has a drastic effect on Fx and Fy,
-                    so I'm going to start by defining the normal loads we want to design around. In order to find these normal
-                    loads, I need to find representative accelerations and velocity. To do this, I've generated a GGV using UT's
-                    MMM implementation. I then calculated the frequency of points within that GGV and put this into a 2D format.
-                    I'm going to analyze the four highest frequency points, and I've pulled the range of velocities at which each
-                    point occurs (max and min values). This will give me 8 conditions to check. I've Included a picture of the
-                    frequency plot to the right.
+                    This section details how I calculated steering effort (click on the title name to learn more about this section)
                 </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/ggv_frequency.png">
             </div>
         </div>
 
         <div class = "row">
             <div class = "col">
+                <a href = "steering_design_structural_design.html"><h2> Structural Design: </h2></a>
                 <p>
-                    I'm using the following points from the frequency plot: (1.67, 0.24), (1.67, -0.05), (1.67, -0.98), (1.67, -1.05).
-                    Their respective min and max velocities are: (18.03, 22.19), (11.55, 27.6), (11.6, 13.14), (13.1, 17.76). Note that
-                    the accelerations are in gs, and the velocities are in m/s. I'm now using these 8 conditions and putting them into
-                    our loading spreadsheet to get the forces at the tires. Note that every force in the table is in Newtons.
+                    This section details how I sized tubes, selected u-joints, selected bearings, etc. (click on the title name to learn more about this section)
                 </p>
             </div>
-
-            <div class = "col">
-                <img src = "../media/tire_loading.png" style = "border-radius: 0px">
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    I've generated graphs of Fy vs SA for each tire below. Note that the lighter, multicolored lines are the exact
-                    loading conditions for each tire, and the black lines are the result of the trimmed mean. I realize that using a
-                    trimmed mean may not be the best metric for this, but the peak Fy on the black lines looks very similar to
-                    that seen across the other normal loads.
-                </p>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <img src = "../media/front_outer_tire.png">
-            </div>
-
-            <div class = "col">
-                <img src = "../media/front_inner_tire.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <img src = "../media/rear_outer_tire.png">
-            </div>
-
-            <div class = "col">
-                <img src = "../media/rear_inner_tire.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    These plots also highlight how our Fy reaches a near maximum at lower SA for lower Fz. For instance, the peak
-                    for our front inner tire (using the trimmed mean) lies on a relatively horizontal line segment; we get a very
-                    similar lateral force for a large range of SA, starting around 7.5 deg. For this reason, I will take optimal
-                    SA for the inner tires as the lowest SA that still corresponds to a peak (at any Fz). This greatly increases Fy
-                    at higher Fz and has a slightly negative effect at lower Fz, but the gain at higher loads is greater in magnitude, 
-                    and this makes performance less sensitive to Fz.
-                </p>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    Our Ackermann selection directly influences the front slip angles, so I will only focus on the front tires for now.
-                    Based on the previous paragraph, I will select the optimal inner slip angle as 10.625 deg and the optimal outer slip
-                    angle as 11.875 deg. Also, note that I took values from the GGV earlier based on frequency. I've now gone back and
-                    pulled the average radius across our sampled points, and I will use this value for the Ackermann calculation. This
-                    radius is 14.102 meters.
-                </p>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <h2> Tire Angles: </h2>
-                <p>
-                    I now have a set of targets to design around. I need my inner SA to be 10.625 deg, I need my outer SA to be 
-                    11.875 deg, and I'm designing with a 14.102m radius turn in mind. I'm now going to take these values, make
-                    a mockup of our 2023 concept vehicle in a 2D sketch, and analyze this sketch going forward.
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    I've included the applicable 2D sketch to the right. I set a radius of 14.102m at the CG, then I drew concentric
-                    circles concident with the inner and outer tires. From here I drew tangents to the inner and outer circles,
-                    defined SA, and took the angles between each wheel and the normal to the track (steered angle). This gives us our
-                    two steered angles and therefore our Ackermann percent. Inner: 14.05 deg, outer: 15 deg, Ackermann: -6.76%.
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/steering_sketch.png">
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    I've now modified the longitudinal position of the outboard tie rod mounts to reflect this Ackermann percent. The
-                    inner tire angle is 14.05 deg, and the outer tire angle is 14.99 deg at 56.25 deg of steered angle. Now that I've
-                    set the Ackermann percent, I need to check physical limitations regarding rules requirements (minimum turn radius).
-                </p>
-            </div>
-
-        </div>
-        <div class = "row">
-            <div class = "col">
-                <h2> Minimum Turn Radius: </h2>
-                <p>
-                    FSAE rules specify that we must be able to complete a 4.5m radius turn. In order to check this condition, I need
-                    to find the max tire angles allowable by linkage clearance (control arms and tie rods). Note that the Ackermann
-                    percent above will influence the max possible tire angles.
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    After iterating through our dynamic reference sketch and checking CAD assemblies, I found that the max allowable
-                    wheel angles are 23.83 deg inner and 26.13 deg outer (under max heave/roll), occurring at 95 deg steered angle.
-                    Now we need to verify whether these angles allow us to complete our required minimum turn radius. I've created
-                    a new 2D sketch and mapped the IC, assuming a velocity low enough that no slip angles develop (worst case).
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/minimum_turn_radius.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    From the 2D sketch, we see that our minimum attainable turn radius is 167.72 in, or 4.26 m. Therefore, this
-                    specific steering design seems valid from a rules standpoint as well.
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <h2> Steering Effort: </h2>
-                <p>
-                    Now I want to look at our expectations for the driver. We need our system to enable drivers to perform at their best,
-                    and steering effort is important when assessing the comfort of our design. For this analysis, I will disregard friction
-                    due to bearings and bushings. In essence, I'll look at tire forces (use these to find forces in the tie rods) and
-                    aligning moment.
-                </p>
-            </div>
-
-        </div>
-        
-        <div class = "row">
-            <div class = "col">
-                <h2> Find Max Aliging Moment: </h2>
-                <p>
-                    The max force in our tie rods is current 200 lbf (done during suspension analyis), and I'm confident that the force
-                    contribution from aligning moment has a larger impact on steering effort. I'll start with this assumption and come
-                    back if my process seems to show otherwise.
-                    <br>
-                    <br>
-                    Now, I don't currently have aligning moment fits, but I have the following data from the FSAE TTC:
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row" style = "text-align: center">
-            <div class = "col">
-                <img src = "../media/MZ_222.png">
-            </div>
-
-            <div class = "col">
-                <img src = "../media/MZ_445.png">
-            </div>
-
-        </div>
-
-        <div class = "row" style = "text-align: center">
-            <div class = "col">
-                <img src = "../media/MZ_667.png">
-            </div>
-
-            <div class = "col">
-                <img src = "../media/MZ_890.png">
-            </div>
-
-        </div>
-
-        <div class = "row" style = "text-align: center">
-            <div class = "col">
-                <img src = "../media/MZ_1112.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    My current plan is to find a normal load I want to analyze and use the discrete FZ slice that works best
-                    for that target FZ. To select this FZ, I want to get the combination of FZ and SA that has the highest
-                    possible aligning moment (this will give a worst case steering effort). To do this I've taken the GGV
-                    sweep from earlier and plotted FZ vs SA for the front tires. I've included this plot to the right:
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/FZ_vs_SA.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    When looking at the MZ vs SA plots from the TTC, I notice a couple of details. First, all of the peaks occur well
-                    within 0 deg and 10 deg. Second, peak MZ shifts outward as MZ increases. Third, the peaks for positive and negative
-                    SA aren't the same (to be safe, I'm going to take all MZ magnitudes at the greater peak). Now I'm going to sweep the 
-                    FZ vs SA plot with these constraints in mind. I'll take the maximum total FZ that occurs on 0 &#8804; SA &#8804; 10 
-                    deg. I've included this state to the right:
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/max_total_FZ.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    Now I need to approximate the MZ for the conditions above. It looks like FZ will shift to around 100 Nm as we approach
-                    1500 N. I can include a rigorous analysis of this later, but for now this approximation seems reasonable. Keep in mind
-                    that as FZ increases, we also shift the peaks outward. Therefore, I'll approximate both aligning moments as
-                    80 Nm or 700 lbf-in. Now I need the corresponding suspension member forces for this state. I've solved for these forces
-                    and included them to the right (note that I only need the tie rod forces for this analysis):
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/max_total_FZ_sus_forces.png" style = "height: 400px; width: auto">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    Now I have everything for the steering effort calculations. Here's the process I plan to use:
-                    <br>
-                    <br>
-                    1. Calculate force due to the aligning moment (divide MZ by distance to tie rod mount)
-                    <br>
-                    2. Subtract force from the tie rods (axial force on the tie rods will oppose the direction of the moment)
-                    <br>
-                    3. Sum forces from the left and right sides of the vehicle
-                    <br>
-                    4. Convert force on the rack to moment on the column (Force * (C-factor / 2&pi;))
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    These calculations give me a steering effort of 14.7 lbf-ft at the steering wheel, or a force of 17.6 lbf on both
-                    sides of the steering wheel. Note that this calculation is done without tire scaling. Scaling will drop the steering
-                    effort below 10 lbf-ft and the required force below 10 lbf, but I want a worst case scenario for force calculations, 
-                    so I'll use the 14.7 lbf-ft value for now.
-                </p>
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <h2> Column Sizing: </h2>
-                <p>
-                    Now that I know torque throughout the column, I can size the column tubes appropriately. I'll use the following
-                    formula for this calculation: shear stress = Tr / Ip. I know the torque through my system from steering effort, and
-                    I'll double this torque for a factor of safety (approximate to 40 lbf-ft). I'll opt with steel 4130 for now as our 
-                    material (due to its yield strength and our team's familiarity with it). This calculation gives me the following:
-                    <br>
-                    <br>
-                    OD / (OD^4 - ID^4) &#8804; 28.634
-                    <br>
-                    <br>
-                    I also want to minimize mass, so I need to minimize &pi;/4 * (OD^2 - ID^2). I've plotted failure metric vs weight
-                    metric to the right. Point 1 corresponds to a tube of outer diameter 0.75" and inner diameter 0.694". I've repeated
-                    this process for the upper column as well.
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/lower_column_sizing.png">
-            </div>
-
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <h2> Hardware Selection (U-Joint Selection): </h2>
-                <p>
-                    I now know the torque throughout the steering system, so I can select universal joints that meet my requirements.
-                    Note that I will use Misumi to source these u-joints, as they have highly adjustable components and in-depth data
-                    sheets. I've gone ahead and located a potential model (the standard model made by Misumi). I'll start at this
-                    arbitrary point and look at the selection criteria from the data sheet, listed to the right:
-                </p>
-            </div>
-
-            <div class = "col">
-                <img src = "../media/u-joint_selection_criteria.png">
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <p>
-                    Using the given formula, I'll approximate an arbitrary rotational speed as 100 rpm (1.67 revolutions per second).
-                    This is technically intermittent speed rather than continuous, but it'll give us a worst case scenario.
-                    Our u-joint angle is 25 degrees, and the torque is 40 lbf-ft (55 Nm). This gives a condition variable of 137,500
-                    and a corrected rotational speed of 182 rpm. I've selected a u-joint with a condition variable of 175,000 and
-                    an allowable rotational speed of 900 (UNCA16). I've now implemented two of these into the design.
-                </p>
-            </div>
-
         </div>
 
     </div>

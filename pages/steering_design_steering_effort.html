@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> Robert Horvath Portfolio </title>
+    <link rel = "icon" type = "image/x-icon" href = "../media/favicon.ico">
+    <link rel = "stylesheet" href = "../css/general_style.css">
+    <link rel = "stylesheet" href = "../css/vehicle_dynamics_style.css">
+    <link rel = "stylesheet" href = "../css/device_style.css">
+    <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+    <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel = "stylesheet">
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name = "description" content = "Portfolio website">
+    <meta name = "keywords" content = "HTML, CSS, JavaScript, Portfolio, FSAE, LHR, Programming, UT Austin">
+    <meta name = "author" content = "Robert Horvath">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!--Navigation Bar-->
+    <section class = "navigation">
+        <a href = "../index.html"><img src = "../media/Logo.jpg" alt = "Logo"></a>
+        
+        <div class = "links" id = "links">
+            <!-- <i class = "fa fa-arrow-right" onclick = "hide_menu()"></i> -->
+
+            <ul>
+                <li><a href = "../index.html"> HOME </a></li>
+                <li><a href = "resume.html"> RESUME </a></li>
+                <li><a href = "contact.html"> CONTACT </a></li>
+            </ul>
+
+        </div>
+
+        <!-- <i class = "fa fa-bars" onclick = "show_menu()"></i> -->
+
+    </section>
+
+    <hr>
+
+    <!--Design-->
+    <h1> Steering Design - Steering Effort </h1>
+
+    <div class = "item_list" style = "gap: 25px">
+        <div class = "row">
+            <div class = "col">
+                <h2> Approach: </h2>
+                <p>
+                    Now I want to look at our expectations for the driver. We need our system to enable drivers to perform at their best,
+                    and steering effort is important when assessing the comfort of our design. For this analysis, I will disregard friction
+                    due to bearings and bushings. In essence, I'll look at tire forces (use these to find forces in the tie rods) and
+                    aligning moment.
+                </p>
+            </div>
+
+        </div>
+        
+        <div class = "row">
+            <div class = "col">
+                <h2> Find Max Aliging Moment: </h2>
+                <p>
+                    The max force in our tie rods is current 200 lbf (done during suspension analyis), and I'm confident that the force
+                    contribution from aligning moment has a larger impact on steering effort. I'll start with this assumption and come
+                    back if my process seems to show otherwise.
+                    <br>
+                    <br>
+                    Now, I don't currently have aligning moment fits, but I have the following data from the FSAE TTC:
+                </p>
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+            <div class = "col">
+                <img src = "../media/MZ_222.png">
+            </div>
+
+            <div class = "col">
+                <img src = "../media/MZ_445.png">
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+            <div class = "col">
+                <img src = "../media/MZ_667.png">
+            </div>
+
+            <div class = "col">
+                <img src = "../media/MZ_890.png">
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+            <div class = "col">
+                <img src = "../media/MZ_1112.png">
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    My current plan is to find a normal load I want to analyze and use the discrete FZ slice that works best
+                    for that target FZ. To select this FZ, I want to get the combination of FZ and SA that has the highest
+                    possible aligning moment (this will give a worst case steering effort). To do this I've taken the GGV
+                    sweep from earlier and plotted FZ vs SA for the front tires. I've included this plot to the right:
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "../media/FZ_vs_SA.png">
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    When looking at the MZ vs SA plots from the TTC, I notice a couple of details. First, all of the peaks occur well
+                    within 0 deg and 10 deg. Second, peak MZ shifts outward as MZ increases. Third, the peaks for positive and negative
+                    SA aren't the same (to be safe, I'm going to take all MZ magnitudes at the greater peak). Now I'm going to sweep the 
+                    FZ vs SA plot with these constraints in mind. I'll take the maximum total FZ that occurs on 0 &#8804; SA &#8804; 10 
+                    deg. I've included this state to the right:
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "../media/max_total_FZ.png">
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    Now I need to approximate the MZ for the conditions above. It looks like FZ will shift to around 100 Nm as we approach
+                    1500 N. I can include a rigorous analysis of this later, but for now this approximation seems reasonable. Keep in mind
+                    that as FZ increases, we also shift the peaks outward. Therefore, I'll approximate both aligning moments as
+                    80 Nm or 700 lbf-in. Now I need the corresponding suspension member forces for this state. I've solved for these forces
+                    and included them to the right (note that I only need the tie rod forces for this analysis):
+                </p>
+            </div>
+
+            <div class = "col">
+                <img src = "../media/max_total_FZ_sus_forces.png" style = "height: 400px; width: auto">
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    Now I have everything for the steering effort calculations. Here's the process I plan to use:
+                    <br>
+                    <br>
+                    1. Calculate force due to the aligning moment (divide MZ by distance to tie rod mount)
+                    <br>
+                    2. Subtract force from the tie rods (axial force on the tie rods will oppose the direction of the moment)
+                    <br>
+                    3. Sum forces from the left and right sides of the vehicle
+                    <br>
+                    4. Convert force on the rack to moment on the column (Force * (C-factor / 2&pi;))
+                </p>
+            </div>
+
+        </div>
+
+        <div class = "row">
+            <div class = "col">
+                <p>
+                    These calculations give me a steering effort of 14.7 lbf-ft at the steering wheel, or a force of 17.6 lbf on both
+                    sides of the steering wheel. Note that this calculation is done without tire scaling. Scaling will drop the steering
+                    effort below 10 lbf-ft and the required force below 10 lbf, but I want a worst case scenario for force calculations, 
+                    so I'll use the 14.7 lbf-ft value for now.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Footer-->
+    <section class = "footer">    
+        <div class = "icons">
+            <a href = "https://github.com/rhorvath02" target = "_blank"><i class = "fa fa-github"></i></a>
+            <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><i class = "fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+</body>
+</html>
