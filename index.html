@@ -7,7 +7,7 @@
     <link rel = "stylesheet" href = "css/general_style.css">
     <link rel = "stylesheet" href = "css/home_style.css">
     <link rel = "stylesheet" href = "css/device_style.css">
-    <!-- <script src = "javascript/reset_scroll.js"></script> -->
+    <script src = "javascript/index_load.js"></script>
     <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
     <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel = "stylesheet">
     <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,9 +16,9 @@
     <meta name = "author" content = "Robert Horvath">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onload = "typing()">
     <!--Navigation Bar-->
-    <section class = "navigation">
+    <section class = "navigation" id = "navigation">
         <a href = "index.html"><img src = "media/Logo.jpg" alt = "Logo"></a>
         
         <div class = "links" id = "links">
@@ -39,18 +39,18 @@
     <!-- <hr> -->
 
     <!-- Introduction -->
-    <section class = "introduction">
-        <div class = "introduction_text">
-            <h1> Hi, I'm Robert. </h1>
+    <section class = "introduction" id = "introduction">
+        <div class = "introduction_text" id = "introduction_text">
+            <h1 id = "type"> </h1>
 
-            <p>
+            <p id = "introduction_p">
                 I'm a Mechanical Engineering Student at the 
-                <a href = "https://www.me.utexas.edu/" target = "_blank"><p1>University of Texas at Austin</p1></a>,
+                <a href = "https://www.me.utexas.edu/" target = "_blank"><p1 id = "UT_link">University of Texas at Austin</p1></a>,
                 specializing in computer science and automotive engineering.
             </p>
         </div>
 
-        <div class = "introduction_image">
+        <div class = "introduction_image" id = "introduction_img">
             <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><img src = "media/Profile.jpg" alt = "Profile picture"></a>
         </div>
 
@@ -59,7 +59,7 @@
     <!-- <hr> -->
 
     <!--Projects-->
-    <section class = "projects">
+    <section class = "projects" id = "projects">
         <h1> Projects </h1>
 
         <div class = "project_array">
@@ -96,7 +96,7 @@
     <!-- <hr> -->
 
     <!--Footer-->
-    <section class = "footer">    
+    <section class = "footer" id = "footer">    
         <div class = "icons">
             <a href = "https://github.com/rhorvath02" target = "_blank"><i class = "fa fa-github"></i></a>
             <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><i class = "fa fa-linkedin"></i></a>

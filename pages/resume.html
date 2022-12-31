@@ -7,6 +7,7 @@
     <link rel = "stylesheet" href = "../css/general_style.css">
     <link rel = "stylesheet" href = "../css/resume_style.css">
     <link rel = "stylesheet" href = "../css/device_style.css">
+    <script src = "../javascript/index_load.js"></script>
     <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
     <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel = "stylesheet">
     <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,9 +16,9 @@
     <meta name = "author" content = "Robert Horvath">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onload = "fade_in()">
     <!--Navigation Bar-->
-    <section class = "navigation">
+    <section class = "navigation" id = "navigation">
         <a href = "../index.html"><img src = "../media/Logo.jpg"></a>
 
         <div class = "links" id = "links">
@@ -45,7 +46,7 @@
     </section>
 
     <!--Footer-->
-    <section class = "footer">    
+    <section class = "footer" id = "footer">    
         <div class = "icons">
             <a href = "https://github.com/rhorvath02" target = "_blank"><i class = "fa fa-github"></i></a>
             <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><i class = "fa fa-linkedin"></i></a>
