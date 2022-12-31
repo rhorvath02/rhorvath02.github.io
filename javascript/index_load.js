@@ -5,15 +5,19 @@ speed = 40;
 
 function typing() {
     window.scrollTo(0, 0);
+
+    var page = window.location.href;
     
-    if (index < text.length) {
+    console.log(page);
+
+    if (index < text.length && page == "https://rhorvath.info") {
 
         display += (text.charAt(index));
         document.getElementById("type").innerHTML = display;
         index++;
         setTimeout(typing, speed);
     } else {
-        fade_in("home")
+        fade_in("home");
     }
 }
 
