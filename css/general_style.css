@@ -47,6 +47,7 @@ hr {
 
 .navigation img {
     width: 60px;
+    height: 60px;
     border: 3px ridge #fff;
     border-radius: 20%;
     transition: 0.25s;
