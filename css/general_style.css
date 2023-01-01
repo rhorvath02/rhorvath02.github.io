@@ -47,7 +47,7 @@ hr {
 
 .navigation img {
     width: 60px;
-    height: 60px;
+    height: auto;
     border: 3px ridge #fff;
     border-radius: 20%;
     transition: 0.25s;
@@ -55,11 +55,10 @@ hr {
 
 .navigation img:hover {
     width: 62.5px;
-    height: 62.5px;
 }
 
 .navigation .fa {
-    display:none;
+    display: none;
 }
 
 .links {
