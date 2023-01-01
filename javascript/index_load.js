@@ -6,11 +6,7 @@ speed = 40;
 function typing() {
     window.scrollTo(0, 0);
 
-    var page = window.location.href;
-    
-    console.log(page);
-
-    if (index < text.length && page == "https://rhorvath.info") {
+    if (index < text.length) {
 
         display += (text.charAt(index));
         document.getElementById("type").innerHTML = display;
@@ -19,6 +15,13 @@ function typing() {
     } else {
         fade_in("home");
     }
+}
+
+function skip_typing() {
+    document.getElementById("type").innerHTML = text
+
+    fade_in("home")
+    document.getElementById("type").style.animation = "fadeIn 1s";
 }
 
 function fade_in(destination) {
