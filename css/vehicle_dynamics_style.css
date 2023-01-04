@@ -16,13 +16,24 @@ h1 {
 
 h3 {
     animation: fadeIn 1s;
-    color: #fff;
-    background-color: #232323;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    padding: 10px;
-    text-align: center;
+    font-size: 36px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #32a871;
+    border: 2.5px solid #32a871;
+    border-radius: 10px;
+    transition: 0.5s;
+    background-color: black;
+}
+
+h3:hover {
+    color: #43e097;
+    border-color: #43e097;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 .item_list {
@@ -40,7 +51,7 @@ h3 {
     flex-direction: row;
     gap: 100px;
     width: 60vw;
-    justify-content: left;
+    justify-content: center;
     margin: auto;
     align-items: center;
 }
