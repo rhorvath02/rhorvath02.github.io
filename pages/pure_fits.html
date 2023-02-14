@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> Robert Horvath Portfolio </title>
+    <link rel = "icon" type = "image/x-icon" href = "../media/favicon.ico">
+    <link rel = "stylesheet" href = "../css/general_style.css">
+    <link rel = "stylesheet" href = "../css/vehicle_dynamics_style.css">
+    <link rel = "stylesheet" href = "../css/device_style.css">
+    <script src = "../javascript/index_load.js"></script>
+    <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+    <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel = "stylesheet">
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name = "description" content = "Portfolio website">
+    <meta name = "keywords" content = "HTML, CSS, JavaScript, Portfolio, FSAE, LHR, Programming, UT Austin">
+    <meta name = "author" content = "Robert Horvath">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+</head>
+<body onload = "fade_in()">
+    <!--Navigation Bar-->
+    <section class = "navigation" id = "navigation">
+        <a href = "home.html"><img src = "../media/Logo.jpg" alt = "Logo"></a>
+        
+        <div class = "links" id = "links">
+            <!-- <i class = "fa fa-arrow-right" onclick = "hide_menu()"></i> -->
+
+            <ul>
+                <li><a href = "home.html"> HOME </a></li>
+                <li><a href = "resume.html"> RESUME </a></li>
+                <li><a href = "contact.html"> CONTACT </a></li>
+            </ul>
+
+        </div>
+
+        <!-- <i class = "fa fa-bars" onclick = "show_menu()"></i> -->
+
+    </section>
+
+    <hr>
+
+    <!--Design-->
+    <h1> Tire Modeling - Pure Lateral and Longitudinal Fits </h1>
+
+    <div class = "item_list" style = "gap: 25px">
+        <div class = "row">
+            <div class = "col">
+                <h2> Overview: </h2>
+                <p>
+                    For the purpose of tire characterization, companies take a tire and run it on a test jig, recording parameters
+                    pertinent to the tire's state and performance. The purpose of tire fitting is to make predictions based on the 
+                    set of data provided from testing.
+                </p>
+            </div>
+
+        </div>
+        
+        <div class = "row">
+
+            <div class = "col">
+                <h2> Pacejka Fitting: </h2>
+                <p>
+                    One of the most common methods for tire characterization is using the method described by Hans Pacejka. In this
+                    model, you use the Pacejka Magic Formula and solve for a set of coefficients. After this, you can plot over the
+                    entire domain of the Magic Formula and pure your lateral force, longitudinal force, and aligning moment for a
+                    set of inputs. I've included an image of the general model for lateral fits below:
+                </p>
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+
+            <div class = "col">
+                <img src = "../media/lateral_fit.png" style = "width: 100%; border-radius: 0px">
+            </div>
+
+        </div>
+        
+        <div class = "row" style = "text-align: center">
+
+            <div class = "col">
+                <p>
+                    In this function, we take normal force, slip angle, inclination angle, and Pacejka coefficients as inputs. We then 
+                    return the lateral force. With this setup, we can vary the Pacejka coefficients until our fit matches the set of
+                    data points provided from tire testing. I've plotted the entire domain for multiple inclination angles (each 
+                    inclination angle adds a unique surface) for a set of generated coefficients.
+                </p>
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+
+            <div class = "col">
+                <img src = "../media/lateral_fit_plot.png" style = "width: 100%; border-radius: 25px">
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+
+            <div class = "col">
+                <p>
+                    This process also works for longitudinal fitting (the coefficients change for this case). I've included a sample
+                    longitudinal fit below:
+                </p>
+            </div>
+
+        </div>
+
+        <div class = "row" style = "text-align: center">
+
+            <div class = "col">
+                <img src = "../media/longitudinal_fit_plot.png" style = "width: 100%; border-radius: 25px">
+            </div>
+
+        </div>
+
+        <div class = "row">
+
+            <div class = "col">
+                <h2> Solving for Coefficients: </h2>
+                <p>
+                    The most difficult part of the fitting process is solving for the best Pacejka coefficients. I originally 
+                    tried using Scipy surface fitting, but this becomes less effective as you add more coefficients. I ended up
+                    using a cost function and basin hopping algorithm. The cost function summed the difference between the fit
+                    and its corresponding data point. The basin hopping algorithm allowed me to approximate a global minimum
+                    from a collection of local minima. This allowed me to bypass the issues from typical gradient descent methods,
+                    and I arrived at a set of reasonable coefficients after strategically varying the initial guess for each 
+                    coefficient. 
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Footer-->
+    <section class = "footer" id = "footer">    
+        <div class = "icons">
+            <a href = "https://github.com/rhorvath02" target = "_blank"><i class = "fa fa-github"></i></a>
+            <a href = "https://www.linkedin.com/in/rhorvath2002/" target = "_blank"><i class = "fa fa-linkedin"></i></a>
+        </div>
+    </section>
+
+</body>
+</html>
