@@ -1,8 +1,21 @@
-import { useState, useEffect } from "react"
+// src/components/Projects.tsx
+import { useState, useEffect, ReactNode } from "react"
 import { MathJax, MathJaxContext } from "better-react-mathjax"
 
-// Define projects with JSX content (text, images, MathJax)
-const projects = [
+// --- Types ---
+interface Project {
+  title: string
+  image: string
+  content: ReactNode
+}
+
+interface ProjectOverlayProps {
+  project: Project | null
+  onClose: () => void
+}
+
+// --- Define projects with JSX content ---
+const projects: Project[] = [
   {
     title: "Longhorn Racing Electric",
     image: "src/assets/lre.png",
@@ -12,19 +25,15 @@ const projects = [
           Led vehicle modeling, suspension, and dynamics development for UT
           Austin's Formula SAE electric team.
         </p>
-
         <p>
           Inline math example: $E = mc^2$ and block example:
         </p>
-
         <p>$$F = ma$$</p>
-
         <img
           src="src/assets/lre_extra.png"
           alt="LRE Example"
           className="w-full rounded-xl my-4"
         />
-
         <p>More text and analysis here...</p>
       </>
     ),
@@ -66,8 +75,17 @@ const projects = [
   },
 ]
 
-const ProjectOverlay = ({ project, onClose }) => {
+// --- Overlay component ---
+const ProjectOverlay: React.FC<ProjectOverlayProps> = ({ project, onClose }) => {
   if (!project) return null
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose()
+    }
+    window.addEventListener("keydown", handleEsc)
+    return () => window.removeEventListener("keydown", handleEsc)
+  }, [onClose])
 
   return (
     <div
@@ -79,7 +97,7 @@ const ProjectOverlay = ({ project, onClose }) => {
         onClick={(e) => e.stopPropagation()} // clicking inside does NOT close
       >
         <button
-          className="absolute top-4 right-4 text-dark hover:text-brand"
+          className="absolute top-4 right-4 text-dark hover:text-brand text-2xl"
           onClick={onClose}
         >
           ✕
@@ -110,18 +128,9 @@ const ProjectOverlay = ({ project, onClose }) => {
   )
 }
 
-const Projects = () => {
-  const [activeProject, setActiveProject] = useState(null)
-
-  // Close overlay on Escape key
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveProject(null)
-    }
-
-    if (activeProject) window.addEventListener("keydown", handleEsc)
-    return () => window.removeEventListener("keydown", handleEsc)
-  }, [activeProject])
+// --- Main Projects Component ---
+const Projects: React.FC = () => {
+  const [activeProject, setActiveProject] = useState<Project | null>(null)
 
   return (
     <section id="projects" className="py-12 px-6 md:px-12 bg-light">
