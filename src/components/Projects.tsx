@@ -17,7 +17,7 @@ interface ProjectOverlayProps {
 // --- Define projects with JSX content ---
 const projects: Project[] = [
   {
-    title: "Longhorn Racing Electric",
+    title: "Test",
     image: "src/assets/lre.png",
     content: (
       <>
