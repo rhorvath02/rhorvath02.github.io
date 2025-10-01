@@ -560,7 +560,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-12 px-6 md:px-12 bg-light">
       <h2 className="text-4xl font-bold mb-8 text-center text-dark">Projects</h2>
-
+      <h3 className="text-1xl font-bold mb-8 text-center text-dark">(click each tile for more information)</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => (
           <div
