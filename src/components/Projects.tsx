@@ -18,80 +18,6 @@ interface ProjectOverlayProps {
 
 // --- Define projects with JSX content ---
 const projects: Project[] = [
-  {
-    title: "Steering System",
-    image: "./images/surface_surface_intersection.png",
-    content: (
-      <>
-        <h1> Steering Design - Structural Design </h1>
-        <h2> Column Sizing: </h2>
-        <p>
-            Now I can size the column tubes appropriately. I'll use the following formula for this calculation: shear stress = 
-            Tr / Ip. I need a worst case torque through our system, so I will assume improper use of the steering wheel and
-            say that the max torque is a 150 lb person putting their full weight on the edge of the steering wheel. This gives
-            a torque of approximately 66.67 lbf-ft, and I'll approximate this to 70 lbf-ft). I realize this is likely a heavy 
-            over-estimate, but the fact that we can only acquire tubes with discrete wall thicknesses lessens the extent of 
-            weight gain. I'll opt with steel 4130 for now as our material (due to its yield strength and our team's familiarity 
-            with it). This calculation gives me the following:
-
-            OD / (OD^4 - ID^4) &#8804; 8.484
-
-            I also want to minimize mass, so I need to minimize OD^2 - ID^2. I've plotted failure metric vs weight
-            metric to the right. Point 4 corresponds to a tube of outer diameter 0.75" and inner diameter 0.68". However, I
-            calculated the bearing stress due to the bolt connection through the column, and the tube currently fails. Now
-            I'll increase inner diameter in discrete sizes until the tube doesn't fail. The new inner diameter is 0.652" (this
-            is point 8 on the scatterplot).
-        </p>
-        <br/>
-        <img src = "images/lower_column_sizing.png"/>
-        <p>
-          I repeated this process for the upper column, but we introduce a bending moment on the upper column. Therefore, I 
-          sized the upper column assuming a load of 150 lbf (driver weight) at the steering wheel. This accounts for a typical 
-          driver accidentally putting their full weight on the wheel. I then ran fea applying a force of 150 * 2 = 300 lbf on 
-          the upper column, directed horizontally. This should account for the force that arises from 2g decel, assuming the 
-          driver's full weight ends up on the steering wheel (also worst case).
-        </p>
-        <br/>
-        <p>
-          I now know the torque throughout the steering system, so I can select universal joints that meet my requirements.
-          Note that I will use Misumi to source these u-joints, as they have highly adjustable components and in-depth data
-          sheets. I've gone ahead and located a potential model (the standard model made by Misumi). I'll start at this
-          arbitrary point and look at the selection criteria from the data sheet, listed to the right:
-        </p>
-        <br/>
-        <img src = "images/u-joint_selection_criteria.png"/>
-        <p>
-          Using the given formula, I'll approximate an arbitrary rotational speed as 60 rpm (1 revolution per second).
-          This is technically intermittent speed rather than continuous, but it'll give us a worst case scenario.
-          Our u-joint angle is 25 degrees, and the torque is 70 lbf-ft (95 Nm). This gives a condition variable of 142,500
-          and a corrected rotational speed of 109.2 rpm. I've selected a u-joint with a condition variable of 175,000 and
-          an allowable rotational speed of 900 (UNCA16). I've now implemented two of these into the design.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "Pedal Box",
-    image: "./images/surface_surface_intersection.png",
-    content: (
-      <>
-      </>
-    ),
-  },
-  {
-    title: "Machining Gallery",
-    image: "./machining_gallery/front_hub.jpg",
-    content: (
-      <>
-      <p>
-        Throughout my time on UT Austin's FSAE Electric team, I've learned about the manufacturing process. Below are 
-        parts and assemblies that I've owned and produced. These were all produced on manual machines, using some 
-        combination of lathe and 3-axis mill operations.
-      </p>
-        <Gallery />
-      </>
-    ),
-  },
 {
   title: "Constrained Nonlinear Optimization",
   image: "./images/constrained_nonlinear_optimization.jpg",
@@ -567,7 +493,110 @@ const projects: Project[] = [
         </p>
       </>
     ),
-  }
+  },
+    {
+    title: "Steering System",
+    image: "./images/steering_assy.jpg",
+    content: (
+      <>
+        <p>
+          In the 2022-2023 school year, I was responsible for owning and producing Longhorn Racing Electric's steering subassembly.
+          This section contains general design principles I documented at the time.
+        </p>
+        <br/>
+        <p>
+          <strong>Steering Design - Structural Design - Column Sizing </strong>
+        </p>
+        <br/>
+        <p>
+            The relevant steering system uses two U-joints to control alignment of the steering wheel. In this configuration, the lower 
+            column sees almost entirely shear stress due to torsion. In this situation, a quick hand calc is $\tau = Tr / I_p$. For
+            the sake of this analysis, say that the max torque is due to a 150 lb person putting their full weight on the edge of the
+            steering wheel. This gives a handwheel torque of approximately 66.67 ft-lb, approximated as 70 ft-lb. I realize this is 
+            a heavy over-estimate, but the fact that stock tubes come in discrete wall thicknesses lessens the extent of weight gain. 
+            I've decided to use steel 4130 for now as the column material (due to its yield strength and our team's familiarity 
+            with it). Computing shear stress and relating it to geometry gives:
+
+            $$OD / (OD^4 - ID^4) \le 8.484$$
+
+            We also want to minimize mass, so minimize $OD^2 - ID^2$. I've plotted the left-hand side of the above inequality (y-axis) 
+            against the mass condition (x-axis), including a line to demonstrate the less than condition:
+        </p>
+        <br/>
+        <div className="flex justify-center">
+          <img src="images/lower_column_sizing.png"
+               alt="Lower Column Sizing"
+               className="w-1/2 rounded-lg" />
+        </div>
+        <br/>
+
+        <p>
+          From here, the points under the horizontal line meet our design constraints, and minimizing weight depends on a standard factor of safety.
+          For our use-case, I used tube $8$. I then repeated this process for the upper column, but this application introduces a bending moment. 
+          Therefore, I sized the upper column assuming a load of 150 lbf (driver weight) directed downward at the steering wheel. This accounts 
+          for a typical driver accidentally putting their full weight on the steering wheel. I then ran FEA applying a force of $150 * 2 = 300$ lbf 
+          on the upper column, directed horizontally. This accounts for the force arising under 2g decel, assuming the driver's full weight ends up 
+          on the steering wheel (also worst case and not realistic). This was the "final check" to ensure agreement between the hand calcs and 
+          subsequent setups/structural analyses.
+        </p>
+        <br/>
+        <p>
+          Knowing the torque throughout our steering system, I can select universal joints that meet our requirements.
+          Note that I will use Misumi to source these u-joints, as they have highly adjustable components and in-depth data
+          sheets. I've gone ahead and located a potential model (the standard model made by Misumi). I'll start at this
+          arbitrary point and look at the selection criteria from the data sheet, listed below:
+        </p>
+        <br/>
+        <div className="flex justify-center">
+          <img src="images/u-joint_selection_criteria.png"
+               alt="Lower Column Sizing"
+               className="w-1/2 rounded-lg" />
+        </div>
+        <br/>
+        <p>
+          Using the given formula, I'll approximate an arbitrary rotational speed as 60 rpm (1 revolution per second).
+          This is technically intermittent speed rather than continuous, but it'll give us a worst case scenario.
+          Our u-joint angle is 25 degrees, and the torque is 70 ft-lb (95 Nm). This gives a condition variable of 142,500
+          and a corrected rotational speed of 109.2 rpm. I've selected a u-joint with a condition variable of 175,000 and
+          an allowable rotational speed of 900 (UNCA16). I've now implemented two of these into the design, and CAD is ready 
+          to go.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Pedal Box",
+    image: "./images/pedal_box_assy.jpg",
+    content: (
+      <>
+        <img
+            src="./images/pedal_box_assy.jpg"
+            alt="Pedal box assembly"
+            className="w-1/2 mx-auto rounded-xl my-4"
+          />
+        <br/>
+        <p>
+          I still have to fill this section out, but I designed this pedal box during the 2022-2023 design cycle. Ownership 
+          was juggled around until the final month, and I had to produce something viable and reasonably performant. I'll 
+          fill this out soon, but I'd be happy to discuss anything about this in an interview ;).
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Machining Gallery",
+    image: "./machining_gallery/front_hub.jpg",
+    content: (
+      <>
+      <p>
+        Throughout my time on UT Austin's FSAE Electric team, I've learned about the manufacturing process. Below are 
+        parts and assemblies that I've owned and produced. These were all produced on manual machines, using some 
+        combination of lathe and 3-axis mill operations.
+      </p>
+        <Gallery />
+      </>
+    ),
+  },
 ]
 
 // --- Overlay component ---
